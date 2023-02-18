@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+
+.grid-container {
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  width: 500px;
+  background-color: green;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 10px;
+  height: 50px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+    /* Box styles */
+    .myBox {
+    border: 1px solid black;
+    padding: 5px;
+    font: 12px/18px sans-serif;
+    width: 750px;
+    height: 300px;
+    overflow: scroll;
+    }
+
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px olivedrab;
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: yellowgreen;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: #7bac10;
+    }
+</style>
+
+<script>
+
+</script>
+
+</head>
+<body onload="init()">
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a href="templates/index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#Pcap_analyse" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Pcap Analyse</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">x1</a>
+        <a href="#" class="w3-bar-item w3-button">x2</a>
+        <a href="#" class="w3-bar-item w3-button">x3</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="opacity: 1; background-color: white; max-width:800px" id="Pcap_analyse">
+    <h2 class="w3-wide">Pcap Analyse</h2>
+    <hr>
+    <p style="font-size: 25px; align: left;" class="w3-justify">Preview file</p>
+    <input id="fileInput" type="file" name="file" />
+    <p class="myBox" id="fileContent"></p>
+    <p id="demo"></p>
+
+    
+    <br>
+    
+    <hr>
+    
+    <p style="font-size: 25px; align: left;" class="w3-justify">Create .csv file</p>
+    <form enctype="multipart/form-data" action="{{ url_for('analyze_create_csv') }}" method="post">
+        <input multiple accept=".pcap,.pcapng" type="file" name="file"  />
+        <input value="Upload" type = "submit"/>
+    </form>
+
+ 
+
+    <p>Uploaded file : <span style="color: #0000a0">{{fileName}}</span> </p>
+
+    <br>
+     
+
+  </div>
+
+  <hr>
+  
+  <p style="font-size: 25px; align: left;" class="w3-justify">Create a traffic surveillance with Tshark</p>
+  
+
+
+
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <p class="w3-medium">Powered by <a href="#" target="_blank">Anything</a></p>
+</footer>
+
+<script>
+                
+    
+</script>
+
+
+</body>
+</html>
+
